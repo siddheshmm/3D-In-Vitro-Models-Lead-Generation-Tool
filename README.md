@@ -2,6 +2,14 @@
 
 A comprehensive web agent/crawler that identifies, enriches, and ranks high-probability leads for 3D in-vitro models helping researchers design new therapies.
 
+## 🌐 Live Demo
+
+**👉 [Try the application online](https://your-app-name.streamlit.app)** *(Replace with your actual Streamlit Cloud URL after deployment)*
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
+
+> **Note**: After deploying to Streamlit Cloud, replace `https://your-app-name.streamlit.app` above with your actual deployment URL.
+
 ## 🎯 Overview
 
 This tool acts as a business development assistant that crawls the web for relevant information to output well-qualified leads. It identifies potential customers, enriches their data, and ranks them by their probability of wanting to work with 3D in-vitro model solutions.
@@ -36,17 +44,23 @@ Applies "Propensity to Buy" score (0-100) based on weighted criteria:
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Option 1: Use the Live Demo (Recommended)
+
+Simply visit the [Live Demo](https://your-app-name.streamlit.app) link above - no installation required!
+
+### Option 2: Run Locally
+
+#### Prerequisites
 
 - Python 3.8 or higher
 - pip package manager
 
-### Installation
+#### Installation
 
 1. Clone this repository:
 ```bash
-git clone <repository-url>
-cd euprime-submission
+git clone https://github.com/siddheshmm/3D-In-Vitro-Models-Lead-Generation-Tool.git
+cd 3D-In-Vitro-Models-Lead-Generation-Tool
 ```
 
 2. Install dependencies:
