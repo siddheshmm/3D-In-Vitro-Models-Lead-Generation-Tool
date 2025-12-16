@@ -8,6 +8,10 @@ import pandas as pd
 from io import BytesIO
 import sys
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Add src to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
@@ -160,7 +164,22 @@ def main():
             
             # Stage 2: Enrichment
             st.info("📊 Stage 2: Enriching leads with contact info, location, and company data...")
-            enriched_leads = enrichment_engine.enrich_leads(leads)
+            progress_bar = st.progress(0)
+            status_text = st.empty()
+            
+            enriched_leads = []
+            for i, lead in enumerate(leads):
+                try:
+                    enrichment_engine.enrich_lead(lead)
+                    enriched_leads.append(lead)
+                    progress_bar.progress((i + 1) / len(leads))
+                    status_text.text(f"Enriched {i + 1}/{len(leads)} leads...")
+                except Exception as e:
+                    logger.error(f"Error enriching lead {lead.name}: {e}")
+                    enriched_leads.append(lead)  # Add even if enrichment fails
+            
+            progress_bar.empty()
+            status_text.empty()
             
             # Stage 3: Ranking
             st.info("🎯 Stage 3: Ranking leads by propensity to buy...")

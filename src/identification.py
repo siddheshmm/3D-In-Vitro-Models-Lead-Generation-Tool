@@ -123,38 +123,46 @@ class PubMedSearcher:
         
         logger.info(f"Searching PubMed for: {keywords}")
         
-        # Build search query
-        query_terms = " OR ".join([f'"{term}"' for term in keywords])
-        query = f"{query_terms} AND (\"{2024 - years + 1}\"[Publication Date] : \"{2024}\"[Publication Date])"
+        # For demo purposes, return mock data immediately
+        # In production, uncomment the API calls below
+        return self._get_mock_papers()
         
-        try:
-            # Search API
-            search_url = f"{self.base_url}/esearch.fcgi"
-            params = {
-                "db": "pubmed",
-                "term": query,
-                "retmax": max_results,
-                "retmode": "json"
-            }
-            
-            response = requests.get(search_url, params=params, timeout=10)
-            if response.status_code == 200:
-                data = response.json()
-                pmids = data.get("esearchresult", {}).get("idlist", [])
-                
-                # Fetch details for each paper
-                papers = []
-                for pmid in pmids[:max_results]:
-                    paper = self._get_paper_details(pmid)
-                    if paper:
-                        papers.append(paper)
-                    time.sleep(0.1)  # Rate limiting
-                
-                return papers
-        except Exception as e:
-            logger.error(f"Error searching PubMed: {e}")
-            # Return mock data for demonstration
-            return self._get_mock_papers()
+        # Uncomment below for production API usage:
+        # Build search query
+        # query_terms = " OR ".join([f'"{term}"' for term in keywords])
+        # query = f"{query_terms} AND (\"{2024 - years + 1}\"[Publication Date] : \"{2024}\"[Publication Date])"
+        # 
+        # try:
+        #     # Search API
+        #     search_url = f"{self.base_url}/esearch.fcgi"
+        #     params = {
+        #         "db": "pubmed",
+        #         "term": query,
+        #         "retmax": min(max_results, 10),  # Limit for performance
+        #         "retmode": "json"
+        #     }
+        #     
+        #     response = requests.get(search_url, params=params, timeout=5)
+        #     if response.status_code == 200:
+        #         data = response.json()
+        #         pmids = data.get("esearchresult", {}).get("idlist", [])
+        #         
+        #         # Limit detail fetching for performance
+        #         papers = []
+        #         for pmid in pmids[:5]:  # Only fetch details for first 5
+        #             try:
+        #                 paper = self._get_paper_details(pmid)
+        #                 if paper:
+        #                     papers.append(paper)
+        #             except Exception as e:
+        #                 logger.warning(f"Error fetching paper {pmid}: {e}")
+        #                 continue
+        #         
+        #         return papers if papers else self._get_mock_papers()
+        # except Exception as e:
+        #     logger.error(f"Error searching PubMed: {e}")
+        #     # Return mock data for demonstration
+        #     return self._get_mock_papers()
     
     def _get_paper_details(self, pmid: str) -> Optional[Dict]:
         """Get detailed information about a paper"""
@@ -166,7 +174,7 @@ class PubMedSearcher:
                 "retmode": "xml"
             }
             
-            response = requests.get(fetch_url, params=params, timeout=10)
+            response = requests.get(fetch_url, params=params, timeout=5)
             if response.status_code == 200:
                 # Parse XML response (simplified)
                 # In production, use proper XML parsing
@@ -198,6 +206,13 @@ class PubMedSearcher:
                 "authors": ["Dr. Michael Chen", "Dr. Lisa Wang"],
                 "year": 2023,
                 "journal": "Biomaterials"
+            },
+            {
+                "pmid": "12345680",
+                "title": "New Approach Methodologies in Preclinical Safety Assessment",
+                "authors": ["Dr. Emily Rodriguez", "Dr. James Brown"],
+                "year": 2024,
+                "journal": "Regulatory Toxicology and Pharmacology"
             }
         ]
     
