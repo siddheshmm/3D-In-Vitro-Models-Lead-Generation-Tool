@@ -31,7 +31,7 @@ Add it as the official website:
 1. Go to your repository settings
 2. Scroll to the "About" section
 3. Check the box next to "Website"
-4. Enter your Streamlit Cloud URL: `https://your-app-name.streamlit.app`
+4. Enter your Streamlit Cloud URL: `https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/`
 5. Click **Save changes**
 
 ### 4. ⚠️ Releases (OPTIONAL - Only if you create releases)
@@ -44,7 +44,7 @@ If you create GitHub releases:
 3. Add the deployment link in the release notes:
    ```
    ## Live Demo
-   Try the application: https://your-app-name.streamlit.app
+   Try the application: https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/
    ```
 
 ### 5. ✅ Topics/Tags (OPTIONAL)
@@ -74,7 +74,7 @@ After deploying to Streamlit Cloud:
 ## Example Repository Description
 
 ```
-🔬 3D In-Vitro Models Lead Generation Tool | Identifies, enriches, and ranks high-probability leads for 3D in-vitro models | Live Demo: https://your-app-name.streamlit.app
+🔬 3D In-Vitro Models Lead Generation Tool | Identifies, enriches, and ranks high-probability leads for 3D in-vitro models | Live Demo: https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/
 ```
 
 ## Visual Badge (Optional)
@@ -82,7 +82,7 @@ After deploying to Streamlit Cloud:
 You can also add a Streamlit badge to your README. The code is already in the README.md:
 
 ```markdown
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/)
 ```
 
 This creates a clickable badge that links to your app.

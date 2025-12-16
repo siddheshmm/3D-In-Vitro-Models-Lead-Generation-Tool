@@ -4,11 +4,10 @@ A comprehensive web agent/crawler that identifies, enriches, and ranks high-prob
 
 ## 🌐 Live Demo
 
-**👉 [Try the application online](https://your-app-name.streamlit.app)** *(Replace with your actual Streamlit Cloud URL after deployment)*
+**👉 [Try the application online](https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/)**
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/)
 
-> **Note**: After deploying to Streamlit Cloud, replace `https://your-app-name.streamlit.app` above with your actual deployment URL.
 
 ## 🎯 Overview
 
@@ -46,7 +45,7 @@ Applies "Propensity to Buy" score (0-100) based on weighted criteria:
 
 ### Option 1: Use the Live Demo (Recommended)
 
-Simply visit the [Live Demo](https://your-app-name.streamlit.app) link above - no installation required!
+Simply visit the [Live Demo](https://3d-in-vitro-models-lead-generation-tool-flzl5jvp5uum9lzafdqwaz.streamlit.app/) link above - no installation required!
 
 ### Option 2: Run Locally
 
